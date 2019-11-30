@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var index = require('./routes/index');
+const bodyParser = require('body-parser');
 var app = express();
 
 
@@ -11,7 +12,9 @@ app.set('view engine', 'ejs');
 
 // set path for static assets
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // routes
 app.use('/', index);
