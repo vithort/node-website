@@ -8,24 +8,144 @@
 <body>
     <% include partials/menu %>
 
+    <!-- CARREGAR SOMENTE UM REGISTRO -->
+    <!--
     <div class="container-fluid bg-3 text-center">
         <h3><%= page %></h3><br>
         <div class="row">
-            <div class="col-sm-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Pessoa</label>
+                    <input id="pessoa" type="text" class="form-control" name="pessoa" value="<%= usuario[0].pessoa %>">
+                </div>
             </div>
-            <div class="col-sm-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input id="nome" type="text" class="form-control" name="nome"
+                        value="<%= usuario[0].nome %> <%= usuario[0].sobrenome %>">
+                </div>
             </div>
-            <div class="col-sm-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="email" type="text" class="form-control" name="email" value="<%= usuario[0].email %>">
+                </div>
             </div>
         </div>
     </div>
+    -->
+
+    <!-- CARREGAR TODOS OS REGISTROS FOREACH-->
+    <!--
+    <div class="container-fluid bg-3 text-center">
+        <h3><%= page %></h3><br>
+        <% usuario.forEach(function(usuario){ %>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Pessoa</label>
+                    <input id="pessoa" type="text" class="form-control" name="pessoa" value="<%= usuario.pessoa %>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input id="nome" type="text" class="form-control" name="nome"
+                        value="<%= usuario.nome %> <%= usuario.sobrenome %>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="email" type="text" class="form-control" name="email" value="<%= usuario.email %>">
+                </div>
+            </div>
+        </div>
+    </div>
+    <%  }); %>
+    -->
+
+    <!-- CARREGAR TODOS OS REGISTROS FOR -->
+    <!--
+    <div class="container-fluid bg-3 text-center">
+        <h3><%= page %></h3><br>
+        <table>
+            <tr>
+                <td>pessoa</td>
+                <td>nome</td>
+                <td>email</td>
+            </tr>
+            <%for(var i = 0; i < usuario.length; i++){%>
+            <tr>
+                <td> <%=usuario[i].pessoa%> </td>
+                <td> <%=usuario[i].nome%> </td>
+                <td> <%=usuario[i].email%> </td>
+            </tr>
+            <%}%>
+        </table>
+    </div>
+    -->
+
+    <!-- CARREGAR TODOS OS REGISTROS NO SELECT -->
+    <div class="container-fluid bg-3 text-center">
+        <h3><%= page %></h3><br>
+        <div class="col-lg-12">
+            <div class="row">
+                <select id="selecaoMatricula" name="selecaoMatricula" class="form-control" onclick="getOption()">
+                    <option value="" selected disabled hidden>Selecione sua Matrícula</option>
+                    <% usuario.forEach(function(usuario){ %>
+                    <option onclick="myAlertFunction()" value="<%= usuario.pessoa %>">
+                        <%= usuario.pessoa %> <%= usuario.nome %>
+                        <%= usuario.sobrenome %></option>
+                    <%  }); %>
+                </select>
+                <div class="form-group">
+                    <label>Mae</label>
+                    <input id="mae" type="text" class="form-control" name="mae" value="<%= usuario[0].mae %>">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <p>
+        Select one from the given options:
+        <select id="select1">
+            <option value="free">Free</option>
+            <option value="basic">Basic</option>
+            <option value="premium">Premium</option>
+        </select>
+    </p>
+
+    <p>
+        The value of the option selected is:
+        <span class="output"></span>
+    </p>
+
+    <button onclick="getOption()">
+        Check option
+    </button>
+
+    <script type="text/javascript">
+        function getOption() {
+            selectElement =
+                document.querySelector('#selecaoMatricula');
+
+            output = selectElement.value;
+
+            document.querySelector('.output').textContent
+                = output;
+        } 
+    </script>
+
 
 </body>
 <% include partials/script %>
