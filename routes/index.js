@@ -23,20 +23,26 @@ router.post('/', function (req, res, next) {
     if ((req.body.usernameField === 'email@teste.com') && (req.body.passwordField === '123456')) {
         let usuario = [
             {
+                "pessoa": 123,
                 "nome": "Miguel",
                 "sobrenome": "Barreto",
                 "email": "miguel@email.com",
                 "senha": "123456",
                 "mae": "Maria",
-                "pessoa": 123,
+                "matricula": "000123",
+                "curso": "Medicina",
+                "uf": "FTC-PARALELA"
             },
             {
+                "pessoa": 456,
                 "nome": "Vithor",
                 "sobrenome": "Carvalho",
                 "email": "vithor@email.com",
                 "senha": "123456",
                 "mae": "Jussara",
-                "pessoa": 456
+                "matricula": "000456",
+                "curso": "informática",
+                "uf": "FTC-LAPA"
             }
         ]
         //console.log('login ok');
