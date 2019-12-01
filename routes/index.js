@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.get('/', function (req, res, next) {
     res.render('login', { page: 'Login', menuId: 'login', message: null });
@@ -22,15 +22,11 @@ router.post('/', function (req, res, next) {
     //console.log(req.body.passwordField)
     if ((req.body.usernameField === 'email@teste.com') && (req.body.passwordField === '123456')) {
         console.log('login ok')
-        res.render('about', { page: 'About', menuId: 'about', message: null });
+        res.render('index', { page: 'Home', menuId: 'index', message: null });
     } else {
         console.log('login falhou')
-        res.render('index', { page: 'Home', menuId: 'index', message: 'Usuário e/ou senha inválidos!' });
+        res.render('login', { page: 'Login', menuId: 'login', message: 'Usuário e/ou senha inválidos!' });
     }
 });
-
-
-//res.render('login', { message: 'Usuário e/ou senha incorretos!' });
-
 
 module.exports = router;
