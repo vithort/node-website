@@ -100,14 +100,16 @@
         <h3><%= page %></h3><br>
         <div class="col-lg-12">
             <div class="row">
+                <label>Selecione sua Matrícula:</label><br>
                 <select id="selecaoMatricula" name="selecaoMatricula" class="form-control" onchange="fillData()">
-                    <option value="" selected disabled hidden>Selecione sua Matrícula</option>
+                    <option value="" selected disabled hidden></option>
                     <% usuario.forEach(function(usuario){ %>
-                    <option value="<%= usuario.id %>" pMatricula="<%= usuario.matricula %>"
+                    <option value="<%= usuario.matricula %>" pMatricula="<%= usuario.matricula %>"
                         pCurso="<%= usuario.curso %>" pUf="<%= usuario.uf %>">
-                        <%= usuario.pessoa %> <%= usuario.nome %> <%= usuario.sobrenome %></option>
+                        <%= usuario.matricula %> - <%= usuario.nome %> <%= usuario.sobrenome %></option>
                     <%  }); %>
                 </select>
+                <br>
                 <div>
                     <div class="form-group" class>
                         <label>Matrícula</label>

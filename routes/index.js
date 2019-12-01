@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
                 "senha": "123456",
                 "mae": "Jussara",
                 "matricula": "000456",
-                "curso": "informática",
+                "curso": "Informática",
                 "uf": "FTC-LAPA"
             }
         ]
