@@ -6,15 +6,15 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/index', function (req, res, next) {
-    res.render('index', { page: 'Home', menuId: 'index' });
+    res.render('index', { page: 'Home', menuId: 'index', message: null, usuario: usuario });
 });
 
 router.get('/about', function (req, res, next) {
-    res.render('about', { page: 'About Us', menuId: 'about' });
+    res.render('about', { page: 'About Us', menuId: 'about', message: null });
 });
 
 router.get('/contact', function (req, res, next) {
-    res.render('contact', { page: 'Contact Us', menuId: 'contact' });
+    res.render('contact', { page: 'Contact Us', menuId: 'contact', message: null });
 });
 
 router.post('/', function (req, res, next) {

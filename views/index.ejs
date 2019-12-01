@@ -124,9 +124,9 @@
                         <input id="uf" name="uf" type="text" class="form-control" disabled>
                     </div>
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-lg">Ir para o Portal</button>
-                </div>
+                <form action="http://aluno.com.br" method="get">
+                    <button id="portalAluno" class="btn btn-lg submit-button" type="submit" formtarget="_blank">Ir para o Portal</button>
+                </form>
             </div>
         </div>
     </div>
@@ -138,13 +138,13 @@
             //document.querySelector('.uf').textContent = output;
             //document.getElementById("uf").setAttribute("value", usuario[0].uf);
             //document.getElementById("matricula").setAttribute("value", usuario[output].matricula);
-            var sel = document.getElementById('selecaoMatricula');
-            var selected = sel.options[sel.selectedIndex];
-            var curso = selected.getAttribute('pCurso');
+            let sel = document.getElementById('selecaoMatricula');
+            let selected = sel.options[sel.selectedIndex];
+            let curso = selected.getAttribute('pCurso');
             document.getElementById("curso").setAttribute("value", curso);
-            var matricula = selected.getAttribute('pMatricula');
+            let matricula = selected.getAttribute('pMatricula');
             document.getElementById("matricula").setAttribute("value", matricula);
-            var uf = selected.getAttribute('pUf');
+            let uf = selected.getAttribute('pUf');
             document.getElementById("uf").setAttribute("value", uf);
         }
     </script>
